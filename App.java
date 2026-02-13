@@ -1,4 +1,4 @@
-package Programming.SER120.chess;
+package Programming.SER120.Chess;
 
 import Programming.SER120.Chess.game.GameManager;
 

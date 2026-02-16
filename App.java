@@ -23,8 +23,11 @@ public class App {
 
         //goober.scream();
         GameManager gm = new GameManager();
-        gm.runGame();
-        
+        System.out.println("GameManager: Initializing engine...");
+        String exit = "Nah";
+        while(!exit.equals("Exit")) {
+            exit = gm.runGame();
+        }
         System.out.println("--- Session Ended ---");
     }
 }

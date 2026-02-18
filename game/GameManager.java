@@ -17,15 +17,14 @@ public class GameManager {
         board.showBoard(); // Assuming Board has a print/show method
         System.out.println("GameManager: Ready for White's move.");
         System.out.print("GameManager: Enter move: ");
-        board.movePiece(scan.nextLine());
-        board.showBoard();
-        System.out.println("Exit?, \"YES\" or \"NO\"");
-        if(scan.nextLine().equals("YES")){
-            return "Exit";
+        String status = board.movePiece(scan.nextLine());
+        if (status.equalsIgnoreCase("EXIT")) {
+            return "EXIT";
         }
-        else{
-            return "Nah";
+        else {
+            System.out.println("GameManager: " + status);
         }
+        return "continue";
 
     }
 }

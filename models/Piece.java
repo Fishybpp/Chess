@@ -27,9 +27,10 @@ public class Piece {
 			}
 			row++;
 		}
+		currentPos = "A1";
 	}
 
-	public void setPosition(String position) {
+	private void setPosition(String position) {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				if (pos[i][j].equals(position)){
@@ -39,6 +40,24 @@ public class Piece {
 			}
 		}
 		currentPos = pos[posRowIndex][posColIndex];
+	}
+
+	public void movePiece(String position) throws IllegalArgumentException {
+		switch(currentType){
+			case "King" -> {
+				int colDiff = Math.abs(currentPos.charAt(0) - position.charAt(0));
+				int rowDiff = Math.abs(currentPos.charAt(1) - position.charAt(1));
+				if (colDiff <= 1 && rowDiff <= 1) {
+				    setPosition(position);
+				}
+				else {
+					throw new IllegalArgumentException("The King cannot possibly do that Brotato");
+				}
+			}
+            default -> {
+            	setPosition(position);
+            }
+        };
 	}
 
 	public String getPosition() {

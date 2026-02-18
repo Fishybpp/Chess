@@ -27,7 +27,7 @@ public class CoolBoard extends Board {
 
     @Override
     public void showBoard() {
-        System.out.println(YELLOW_TEXT + "\n===   CHESS ADVENTURE BOARD  ===" + RESET);
+        System.out.println(YELLOW_TEXT + "\n  ========= CHESS BOARD ==========" + RESET);
         
         for (int i = 7; i >= 0; i--) { // Using 8 for standard chess
             for (int j = 0; j < 8; j++) {
@@ -41,19 +41,29 @@ public class CoolBoard extends Board {
                 
                 
                 // Print the square with padding to make it look "chunky"
-                System.out.print(background + " " + piece + " " + RESET);
+                if (j == 0) {
+                  System.out.print(YELLOW_TEXT + (i + 1) + WHITE_TEXT + " " + background + " " + piece + " " + RESET);  
+                }
+                else {
+                    System.out.print(background + " " + piece + " " + RESET);
+                }
             }
             System.out.println(); // New line after each row
         }
-        System.out.println(YELLOW_TEXT + "================================" + RESET);
+        System.out.println(YELLOW_TEXT + "  ================================" + RESET);
+        System.out.println(YELLOW_TEXT + "  A    B    C   D   E   F   G   H" + RESET);
     }
     
-    public void movePiece(String position){
-        if (!((position.charAt(0) > 'H') || (Integer.parseInt(position.substring(1)) > 8))) {
-            piece1.setPosition(position);
+    public String movePiece(String position){
+         if (position.equalsIgnoreCase("exit")) {
+            return "exit";
         }
-        else{
-            System.out.println("What thats not a thing");
+        try {
+            piece1.movePiece(position.toUpperCase());
+            return "Piece moved to position.toUpperCase()";
+        }
+        catch(IllegalArgumentException e) {
+            return e.getMessage();
         }
     }
     

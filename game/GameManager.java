@@ -17,7 +17,7 @@ public class GameManager {
         board.showBoard(); // Assuming Board has a print/show method
         System.out.println("GameManager: Ready for White's move.");
         System.out.print("GameManager: Enter move: ");
-        String status = board.movePiece(scan.nextLine());
+        String status = board.movePiece(scan.nextLine() + "  ");
         if (status.equalsIgnoreCase("EXIT")) {
             return "EXIT";
         }

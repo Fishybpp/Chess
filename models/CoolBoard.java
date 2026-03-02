@@ -60,7 +60,7 @@ public class CoolBoard extends Board {
         }
         try {
             piece1.movePiece(position.toUpperCase());
-            return "Piece moved to position.toUpperCase()";
+            return "Piece moved to " + position.toUpperCase();
         }
         catch(IllegalArgumentException e) {
             return e.getMessage();

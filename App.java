@@ -1,6 +1,6 @@
-package Chess;
+package Programming.SER120.Chess;
 
-import Chess.game.GameManager;
+import Programming.SER120.Chess.game.GameManager;
 
 public class App {
 

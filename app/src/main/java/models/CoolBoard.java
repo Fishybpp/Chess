@@ -1,5 +1,4 @@
 package models;
-import models.Piece;
 
 public class CoolBoard extends Board {
 
@@ -9,21 +8,13 @@ public class CoolBoard extends Board {
     public static final String BLACK_BG = "\u001B[40m";
     public static final String WHITE_TEXT = "\u001B[37m";
     public static final String YELLOW_TEXT = "\u001B[33m";
-    private Piece piece1 = new Piece();
+    private Piece piece1 = new Piece("King");
 
     public CoolBoard(int rows, int cols) {
         super(rows, cols); // Call the original Board constructor
     }
 
-    private String displayPiece(){
-       return switch(piece1.getType()) {
-            case "Pawn" -> "P ";
-            case "King" -> "K ";
-            case "Knight" -> "N ";
-            case "Queen" -> "Q ";
-            default -> "K";
-       };
-    }
+    
 
     @Override
     public void showBoard() {
@@ -36,7 +27,7 @@ public class CoolBoard extends Board {
 
                 String piece = "--";
                 if ((piece1.getRowIndex() == j) && (piece1.getColIndex() == i)) {
-                    piece = displayPiece();
+                    piece1.displayPiece();
                 }
                 
                 

@@ -1,6 +1,5 @@
 package game;
 
-import models.Board;
 import models.CoolBoard;
 import java.util.Scanner;
 

@@ -20,7 +20,7 @@ public class Piece {
 		intitalizePos();
 		currentType = type;
 		setPosition(position);
-		team = WHITE;
+		this.team = team;
 	}
 	public Piece(String type) {
 		intitalizePos();
@@ -52,6 +52,8 @@ public class Piece {
 	}
 
 	public void movePiece(String position) throws IllegalArgumentException {
+		position = position.toUpperCase();
+		currentPos = currentPos.toUpperCase();
 		switch (currentType) {
 			case "King" -> {
 				int colDiff = Math.abs(currentPos.charAt(0) - position.charAt(0));
@@ -103,10 +105,9 @@ public class Piece {
 				}				
 			}
 			default -> {
-				setPosition(position);
+				throw new IllegalArgumentException("That's not a valid piece twin");
 			}
-		}
-		;
+		};
 	}
 
 	public String getPosition() {

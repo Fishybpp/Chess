@@ -1,4 +1,4 @@
-package Programming.SER120.Chess.models;
+package models;
 
 public class Piece {
 	//Variables

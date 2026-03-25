@@ -1,7 +1,7 @@
-package Programming.SER120.Chess.game;
+package game;
 
-import Programming.SER120.Chess.models.Board;
-import Programming.SER120.Chess.models.CoolBoard;
+import models.Board;
+import models.CoolBoard;
 import java.util.Scanner;
 
 public class GameManager {
@@ -18,6 +18,7 @@ public class GameManager {
         System.out.println("GameManager: Ready for White's move.");
         System.out.print("GameManager: Enter move: ");
         String status = board.movePiece(scan.nextLine());
+        scan.close();
         if (status.equalsIgnoreCase("EXIT")) {
             return "EXIT";
         }

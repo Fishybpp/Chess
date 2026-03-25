@@ -1,5 +1,5 @@
   
-package Programming.SER120.Chess.models;
+package Chess.models;
 /**
  * A Class representing a Board that can be used in chess games
  * SER 120

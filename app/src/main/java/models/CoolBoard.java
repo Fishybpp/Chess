@@ -1,5 +1,5 @@
-package Programming.SER120.Chess.models;
-import Programming.SER120.Chess.models.Piece;
+package models;
+import models.Piece;
 
 public class CoolBoard extends Board {
 

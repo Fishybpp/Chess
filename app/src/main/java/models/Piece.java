@@ -14,17 +14,20 @@ public class Piece {
 	/** The type of the piece (KING, QUEEN, PAWN, KNIGHT, ROOK, BISHOP) */
 	public enum Type {
 		QUEEN, ROOK, BISHOP, KNIGHT, KING, PAWN
-	/**
-	 * @param type tyoe of Currnt Chess Piece
-	 * @param team tean of Current Chess Piece
-	 */
+		/**
+		 * @param type tyoe of Currnt Chess Piece
+		 * @param team tean of Current Chess Piece
+		 */
 	}
+
 	/** The team of the piece (WHITTE, BLACK) */
 	public enum Team {
 		WHITE, BLACK
 	}
+
 	/**
 	 * Constructs a Piece with the given type, starting position, and team.
+	 * 
 	 * @param type The type of the piece (KING, QUEEN, PAWN, KNIGHT, ROOK, BISHOP)
 	 * @param team The team of the piece (WHITE, BLACK)
 	 */
@@ -118,7 +121,7 @@ public class Piece {
 					setPosition(position);
 					return;
 				}
-				if (Math.abs(rowDiff) == 2  && Math.abs(colDiff) == 1) {
+				if (Math.abs(rowDiff) == 2 && Math.abs(colDiff) == 1) {
 					setPosition(position);
 					return;
 				}
@@ -128,12 +131,52 @@ public class Piece {
 			case BISHOP -> {
 				int colDiff = position.charAt(0) - currentPos.charAt(0);
 				int rowDiff = position.charAt(1) - currentPos.charAt(1);
-			 	if ((double)rowDiff/coldDiff == .5) {
-			 		setPosition(position);
-			 		return;
-			 	}	
+				if (Math.abs(((double) rowDiff / colDiff)) == 1) {
+					setPosition(position);
+					return;
+				}
 				throw new IllegalArgumentException("Thats not really in the Knight's abilty");
 			}
+
+			case QUEEN -> {
+				int colDiff = position.charAt(0) - currentPos.charAt(0);
+				int rowDiff = position.charAt(1) - currentPos.charAt(1);
+
+				if (Math.abs(((double) rowDiff / colDiff)) == 1) {
+					setPosition(position);
+					return;
+				}
+
+				if (colDiff == 0) {
+					setPosition(position);
+					return;
+				}
+
+				if (rowDiff == 0) {
+					setPosition(position);
+					return;
+				}
+
+				throw new IllegalArgumentException("Thats not really in the Knight's abilty");
+			}
+
+			case ROOK -> {
+				int colDiff = position.charAt(0) - currentPos.charAt(0);
+				int rowDiff = position.charAt(1) - currentPos.charAt(1);
+
+				if (colDiff == 0) {
+					setPosition(position);
+					return;
+				}
+
+				if (rowDiff == 0) {
+					setPosition(position);
+					return;
+				}
+
+				throw new IllegalArgumentException("Thats not really in the Knight's abilty");
+			}
+
 			default -> {
 				throw new IllegalArgumentException("That's not a valid piece twin");
 			}
@@ -159,8 +202,7 @@ public class Piece {
 	public void setType(Type type) {
 		if (type == type.BISHOP || type == type.KNIGHT || type == type.QUEEN) {
 			currentType = type;
-		}
-		else {
+		} else {
 			throw new IllegalArgumentException("That Piece Type Does Not Exist");
 		}
 	}

@@ -1,4 +1,6 @@
 package models;
+import models.Piece.Type;
+import models.Piece.Team;  
 
 public class CoolBoard extends Board {
 
@@ -8,13 +10,12 @@ public class CoolBoard extends Board {
     public static final String BLACK_BG = "\u001B[40m";
     public static final String WHITE_TEXT = "\u001B[37m";
     public static final String YELLOW_TEXT = "\u001B[33m";
-    private Piece piece1 = new Piece("King");
 
     public CoolBoard(int rows, int cols) {
         super(rows, cols); // Call the original Board constructor
     }
 
-    
+    public Piece piece1 = new Piece(Type.PAWN, "A1", Team.WHITE);
 
     @Override
     public void showBoard() {

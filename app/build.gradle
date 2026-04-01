@@ -36,7 +36,11 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'org.example.App'
+    mainClass = 'App'
+}
+
+tasks.named('run') {
+    standardInput = System.in
 }
 
 tasks.named('test') {

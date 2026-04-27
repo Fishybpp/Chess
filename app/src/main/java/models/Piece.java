@@ -2,11 +2,11 @@ package models;
 
  public class Piece {
 
-	enum Type {
+	public enum Type {
 		KING, QUEEN, ROOK, BISHOP, KNIGHT, PAWN
 	}
 
-	enum Team {
+	public enum Team {
 		WHITE, BLACK
 	}
 

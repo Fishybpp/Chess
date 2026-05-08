@@ -41,6 +41,9 @@ application {
 
 tasks.named('run') {
     standardInput = System.in
+    jvmArgs = ['-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8']
+    environment 'TERM', 'xterm-256color'
+    environment 'COLORTERM', 'truecolor'
 }
 
 tasks.named('test') {
